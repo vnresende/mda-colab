@@ -99,12 +99,8 @@ class ModalReport():
         columns = list(self.df.loc[0,:])
         columns[0] = 'time'
         i = 0
-        for column in columns:
-            if column == ''
-                column = f'No_name_{i+1}'
-                i = i + 1
-     
-        # for i in range(len(columns)):
-        #     columns[i] =  f"{i + 1} - {columns[i]}"
+        for i in range(len(columns)):
+            if columns[i] == ''
+                columns[i] =   f"Col{i + 1}"
         self.df.columns = columns
         self.units = list(self.df.loc[1,:])
