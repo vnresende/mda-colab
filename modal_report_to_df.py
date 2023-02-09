@@ -3,9 +3,9 @@ import pandas as pd
 class ModalReport():
 
 
-    def __init__(self, file_name):
+    def __init__(self, file_name, dataframe):
         self.name = str(file_name)
-        self.df = pd.read_excel(filename, sheet_name = 'ModalReport')
+        self.df = dataframe
         self.units = []
         self.call_functions()
     
