@@ -11,7 +11,7 @@ class ModalReport():
     
     def call_functions(self):
         self.enumerate_columns()                            # Renomeia as coluna a partir do 0
-        self.df.drop([0, 1, 2 ,3 ], axis = 1)                  # Apaga as colunas Mode, Mode Type e Sample Point
+        # self.df.drop([0, 1, 2 ,3 ], axis = 1)                  # Apaga as colunas Mode, Mode Type e Sample Point
         self.repetir_mesclados(6, 19)                       # Repetir 'PRE', 'MID', 'POS' e 'DIL'
         self.repetir_mesclados(7, 5)                        # Repetir Concentração, gramas e gramas/dist
         self.labels_and_units()                             # Linha 0 recebe labels, linha 1 recebe unidades
