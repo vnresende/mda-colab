@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 import math
-!pip install asammdf==7.2.0
+pip install asammdf==7.2.0
 from asammdf import MDF, Signal
 
 def uploading_files():
