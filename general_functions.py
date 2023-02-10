@@ -1,5 +1,5 @@
 def uploading_files():
-    from google.colab import files, runtime
+    from google.colab import files
     uploaded = files.upload()
     uploaded_files = list(uploaded.keys())
     output_filename = [] 
