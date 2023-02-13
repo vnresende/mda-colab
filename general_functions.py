@@ -1,4 +1,6 @@
+from google.colab import files
 import zipfile
+
 
 def uploading_files():
     """type: tuple. Realiza o upload de varios arquivos simultaneamente."""
@@ -31,6 +33,7 @@ def subir_aquivo():
         return False
     
 # requer 'import zipfile'
+# requer 'from google.colab import files'
 def download_as_zip(nome_zip, lista_arquivo):
     """Realiza download do arquivo em zip"""
     z_out = zipfile.ZipFile(nome_zip, 'w', zipfile.ZIP_DEFLATED) 
