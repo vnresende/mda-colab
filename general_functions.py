@@ -27,3 +27,11 @@ def subir_aquivo():
         return True
     elif repetir.lower() == 'n':
         return False
+    
+    
+def download_as_zip(nome_zip, lista_arquivo):
+    """Realiza download do arquivo em zip"""
+    z_out = zipfile.ZipFile(nome_zip, 'w', zipfile.ZIP_DEFLATED) 
+    z_out.write(lista_arquivo)                                    
+    z_out.close()
+    files.download(nome_zip)
