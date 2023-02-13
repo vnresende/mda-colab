@@ -40,3 +40,12 @@ def download_as_zip(nome_zip, lista_arquivo):
     z_out.write(lista_arquivo)                                    
     z_out.close()
     files.download(nome_zip)
+    
+# requer 'import zipfile'
+# requer 'from google.colab import files'
+def extracting_zip(file_name):
+    """Descompactar arquivo zip"""
+    z_in = zipfile.ZipFile(file_name, 'r')
+    z_in.extractall()
+    z_in.close()
+    return z_in.namelist()
