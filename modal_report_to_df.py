@@ -105,7 +105,7 @@ class ModalReport():
         self.df.columns = columns
         
         
-     def get_units(self):
+    def get_units(self):
         """Armazena a linha 1 em self.units"""
         for column in self.df.columns:
             self.units.append(self.df[column][1])
