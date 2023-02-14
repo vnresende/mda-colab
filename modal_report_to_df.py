@@ -18,8 +18,9 @@ class ModalReport():
         self.df.dropna(axis = 1, inplace = True)            # Remove colunas com 'Not a Number' (NaN)
         self.df.drop_duplicates(9, inplace = True)          # Remove linhas que contem duplicadas na coluna tempo
         self.move_column_to(9, 0)                           # Translada a coluna de 'tempo' para a 1ª pos
-        self.set_labels_and_units()                         # Renomeia as colunas e obtem as unidades
+        self.set_labels()                                   # Renomeia as colunas
         self.df = self.df.loc[:,~self.df.columns.duplicated()] # Elimina colunas repitidas
+        self.get_units()                                    # Recebe o tipo de unidade de medida
         self.df.drop(range(0,2), inplace = True)            # Elimina as linhas 0 e 1 do DF
         self.df.reset_index(drop = True, inplace = True)    # Reset de index
 
@@ -93,9 +94,8 @@ class ModalReport():
         self.df.loc[1, :] = unit
 
 
-    def set_labels_and_units(self):
-        """ Muda o nome das colunas conforme está na linha 0.
-            Armazena a linha 1 em self.units """
+    def set_labels(self):
+        """ Muda o nome das colunas conforme está na linha 0."""
         columns = list(self.df.loc[0,:])
         columns[0] = 'time'
         i = 0
@@ -103,4 +103,10 @@ class ModalReport():
             if columns[i] == '':
                 columns[i] = f"Col{i + 1}"
         self.df.columns = columns
-        self.units = list(self.df.loc[1,:])
+        
+        
+     def get_units(self):
+        """Armazena a linha 1 em self.units"""
+        for column in self.df.columns:
+            self.units.append(self.df[column][1])
+        
