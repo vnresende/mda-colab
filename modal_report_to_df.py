@@ -6,7 +6,7 @@ class ModalReport():
     def __init__(self, file_name, dataframe):
         self.name = str(file_name)
         self.df = dataframe
-        self.units = {}
+        self.units = []
         self.call_functions()
         
     
@@ -101,13 +101,8 @@ class ModalReport():
         columns = list(self.df.loc[0,:])
         columns[0] = 'time'
         i = 0
-        dict1 = {}
-        print(self.df.loc[1, :])
         for i in range(len(columns)):
             if columns[i] == '':
-                columns[i] = f"Col{i + 1}"
-            #dict1[columns[i]] = str(self.df.loc[1, i])
-         
+                columns[i] = f"Col{i + 1}"         
         self.df.columns = columns
-        # self.units = list(self.df.loc[1, :])
-        self.units = dict1
+        self.units = list(self.df.loc[1, :])
