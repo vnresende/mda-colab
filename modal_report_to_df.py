@@ -105,9 +105,8 @@ class ModalReport():
                 columns[i] = f"Col{i + 1}"
         self.df.columns = columns
         # self.units = list(self.df.loc[1, :])
-        
+              
         dict1 = {}
-        for i in range(len(self.df.columns)):
-            dict1[self.df.columns[i]] = self.df.loc[1, i]
+        for i in range(len(columns)):
+            dict1[columns[i]] = self.df.loc[1, i]
         self.units1 = dict1
-        
