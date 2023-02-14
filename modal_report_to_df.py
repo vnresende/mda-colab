@@ -6,9 +6,9 @@ class ModalReport():
     def __init__(self, file_name, dataframe):
         self.name = str(file_name)
         self.df = dataframe
-        self.units = []
-        self.units1 = {}
+        self.units
         self.call_functions()
+        
     
     def call_functions(self):
         self.enumerate_columns()                            # Renomeia as coluna a partir do 0
@@ -100,10 +100,12 @@ class ModalReport():
         columns = list(self.df.loc[0,:])
         columns[0] = 'time'
         i = 0
+        dict1 = {}
         for i in range(len(columns)):
             if columns[i] == '':
                 columns[i] = f"Col{i + 1}"
-            self.units1[columns[i]] = self.df.loc[1, i]
+            dict1[columns[i]] = self.df.loc[1, i]
             
         self.df.columns = columns
         # self.units = list(self.df.loc[1, :])
+        self.units = dict1
