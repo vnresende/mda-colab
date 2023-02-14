@@ -6,7 +6,7 @@ class ModalReport():
     def __init__(self, file_name, dataframe):
         self.name = str(file_name)
         self.df = dataframe
-        self.units
+        self.units = {}
         self.call_functions()
         
     
