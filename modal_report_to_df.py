@@ -6,7 +6,7 @@ class ModalReport():
     def __init__(self, file_name, dataframe):
         self.name = str(file_name)
         self.df = dataframe
-        self.units = []
+        self.units1 = []
         self.call_functions()
     
     def call_functions(self):
@@ -106,4 +106,4 @@ class ModalReport():
         
         for column in self.df.columns:
             aux = self.df[column][0]
-            self.units.append(aux)
+            self.units1.append(aux)
