@@ -8,21 +8,20 @@ class ModalReport():
         self.df = dataframe
         self.units = []
         self.call_functions()
-        
     
     def call_functions(self):
-        self.enumerate_columns()                                # Renomeia as coluna a partir do 0
-        self.repetir_mesclados(6, 19)                           # Repetir 'PRE', 'MID', 'POS' e 'DIL'
-        self.repetir_mesclados(7, 5)                            # Repetir Concentração, gramas e gramas/dist
-        self.labels_and_units()                                 # Linha 0 recebe labels, linha 1 recebe unidades
-        self.df.drop(range(2,16), inplace = True)               # Elimina as linhas desnecessárias
-        self.df.dropna(axis = 1, inplace = True)                # Remove colunas com 'Not a Number' (NaN)
-        self.df.drop_duplicates(9, inplace = True)              # Remove linhas que contem duplicadas na coluna tempo
-        self.move_column_to(9, 0)                               # Translada a coluna de 'tempo' para a 1ª pos
-        self.set_labels_and_units()                             # Renomeia as colunas e obtem as unidades de
-        self.df.drop(range(0,2), inplace = True)                # Elimina as linhas 0 e 1 do DF
-        self.df = self.df.loc[:,~self.df.columns.duplicated()]  # Elimina colunas repitidas
-        self.df.reset_index(drop = True, inplace = True)        # Reset de index
+        self.enumerate_columns()                            # Renomeia as coluna a partir do 0
+        self.repetir_mesclados(6, 19)                       # Repetir 'PRE', 'MID', 'POS' e 'DIL'
+        self.repetir_mesclados(7, 5)                        # Repetir Concentração, gramas e gramas/dist
+        self.labels_and_units()                             # Linha 0 recebe labels, linha 1 recebe unidades
+        self.df.drop(range(2,16), inplace = True)           # Elimina as linhas desnecessárias
+        self.df.dropna(axis = 1, inplace = True)            # Remove colunas com 'Not a Number' (NaN)
+        self.df.drop_duplicates(9, inplace = True)          # Remove linhas que contem duplicadas na coluna tempo
+        self.move_column_to(9, 0)                           # Translada a coluna de 'tempo' para a 1ª pos
+        self.set_labels_and_units()                         # Renomeia as colunas e obtem as unidades de
+        self.df.drop(range(0,2), inplace = True)            # Elimina as linhas 0 e 1 do DF
+        self.df.reset_index(drop = True, inplace = True)    # Reset de index
+        self.df = self.df.loc[:,~self.df.columns.duplicated()] # Elimina colunas repitidas
 
     def enumerate_columns(self):
         """ Enumera as colunas a partir de 0 até a último coluna """
@@ -92,7 +91,6 @@ class ModalReport():
             labels[i] = labels[i].lstrip('_')
         self.df.loc[0, :] = labels
         self.df.loc[1, :] = unit
-        print(self.df.loc[1, :])
 
 
     def set_labels_and_units(self):
@@ -103,6 +101,6 @@ class ModalReport():
         i = 0
         for i in range(len(columns)):
             if columns[i] == '':
-                columns[i] = f"Col{i + 1}"         
+                columns[i] = f"Col{i + 1}"
         self.df.columns = columns
-        self.units = list(self.df.loc[1, :])
+        self.units = list(self.df.loc[1,:])
