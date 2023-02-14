@@ -18,8 +18,8 @@ class ModalReport():
         self.df.dropna(axis = 1, inplace = True)            # Remove colunas com 'Not a Number' (NaN)
         self.df.drop_duplicates(9, inplace = True)          # Remove linhas que contem duplicadas na coluna tempo
         self.move_column_to(9, 0)                           # Translada a coluna de 'tempo' para a 1ª pos
+        self.set_labels_and_units()                         # Renomeia as colunas e obtem as unidades
         self.df = self.df.loc[:,~self.df.columns.duplicated()] # Elimina colunas repitidas
-        self.set_labels_and_units()                         # Renomeia as colunas e obtem as unidades de
         self.df.drop(range(0,2), inplace = True)            # Elimina as linhas 0 e 1 do DF
         self.df.reset_index(drop = True, inplace = True)    # Reset de index
 
