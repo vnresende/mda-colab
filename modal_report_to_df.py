@@ -103,4 +103,5 @@ class ModalReport():
             if columns[i] == '':
                 columns[i] = f"Col{i + 1}"
         self.df.columns = columns
-        self.units = list(self.df.loc[1,:])
+        for column in columns:
+            self.units.append(self.df[column][1])
