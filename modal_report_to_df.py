@@ -104,6 +104,6 @@ class ModalReport():
                 columns[i] = f"Col{i + 1}"
         self.df.columns = columns
         
-        for column in columns:
+        for column in self.df.columns:
             aux = self.df[column][0]
             self.units.append(aux)
