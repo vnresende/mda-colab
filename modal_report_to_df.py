@@ -7,6 +7,7 @@ class ModalReport():
         self.name = str(file_name)
         self.df = dataframe
         self.units = []
+        self.units1 = {}
         self.call_functions()
     
     def call_functions(self):
@@ -103,5 +104,9 @@ class ModalReport():
             if columns[i] == '':
                 columns[i] = f"Col{i + 1}"
         self.df.columns = columns
-        self.units = list(self.df.loc[1, :])
+        # self.units = list(self.df.loc[1, :])
+        
+        for i in range(len(self.df.columns)):
+            self.units1[self.df.columns[i]] = self.df.loc[1, i]
+ 
         
