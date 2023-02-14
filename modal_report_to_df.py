@@ -92,6 +92,7 @@ class ModalReport():
             labels[i] = labels[i].lstrip('_')
         self.df.loc[0, :] = labels
         self.df.loc[1, :] = unit
+        print(self.df.loc[1, :])
 
 
     def set_labels_and_units(self):
@@ -101,11 +102,12 @@ class ModalReport():
         columns[0] = 'time'
         i = 0
         dict1 = {}
+        print(self.df.loc[1, :])
         for i in range(len(columns)):
             if columns[i] == '':
                 columns[i] = f"Col{i + 1}"
-            dict1[columns[i]] = str(self.df.loc[1, i])
-            
+            #dict1[columns[i]] = str(self.df.loc[1, i])
+         
         self.df.columns = columns
         # self.units = list(self.df.loc[1, :])
         self.units = dict1
