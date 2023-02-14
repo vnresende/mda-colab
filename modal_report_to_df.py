@@ -103,10 +103,7 @@ class ModalReport():
         for i in range(len(columns)):
             if columns[i] == '':
                 columns[i] = f"Col{i + 1}"
+            self.units1[columns[i]] = self.df.loc[1, i]
+            
         self.df.columns = columns
         # self.units = list(self.df.loc[1, :])
-              
-        dict1 = {}
-        for i in range(len(columns)):
-            dict1[columns[i]] = self.df.loc[1, i]
-        self.units1 = dict1
