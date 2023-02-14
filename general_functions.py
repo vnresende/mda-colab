@@ -12,12 +12,14 @@ def uploading_files():
         output_filename.append(file_name.replace('.xlsx', ".mf4"))
     return (uploaded_files, output_filename)
 
+
 def uploading_single_file():
     """type: list. Realiza o upload de um único arquivo por vez."""
     from google.colab import files
     uploaded = files.upload()
     uploaded_file = list(uploaded.keys())[0]
     return uploaded_file
+
 
 def subir_aquivo():
     """type: boolean. Validação de loop para subir arquivos"""
@@ -32,6 +34,7 @@ def subir_aquivo():
     elif repetir.lower() == 'n':
         return False
     
+    
 # requer 'import zipfile'
 # requer 'from google.colab import files'
 def download_as_zip(nome_zip, lista_arquivo):
@@ -40,6 +43,7 @@ def download_as_zip(nome_zip, lista_arquivo):
     z_out.write(lista_arquivo)                                    
     z_out.close()
     files.download(nome_zip)
+    
     
 # requer 'import zipfile'
 # requer 'from google.colab import files'
