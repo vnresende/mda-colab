@@ -32,7 +32,5 @@ def hioki200ms(files):
 
     df_avg['datetime']= df_avg_datetime['datetime']
     df_avg.columns
-
-    df_avg_show = pd.DataFrame()
-    #df_avg_show = df_avg[['Urms1', 'Urms2', 'Umn1', 'Umn2', 'Udc1', 'Udc2', 'Irms1', 'Irms2', 'Imn1', 'Imn2', 'Idc1', 'Idc2']]
-    df_avg_show = df_avg[['Udc1', 'Udc2', 'Idc1']]
+    
+    return df_avg
