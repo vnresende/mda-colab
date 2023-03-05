@@ -1,8 +1,6 @@
 import pandas as pd
 import numpy as np
 
-files = extracting_zip('mda-colab/hioki/HIOKI.zip')
-
 df = []
 for file_name in files:
     df.append(pd.read_csv(file_name,  on_bad_lines='skip'))
