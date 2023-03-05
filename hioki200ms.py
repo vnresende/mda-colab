@@ -34,3 +34,16 @@ def hioki200ms(files):
     df_avg.columns
     
     return df_avg
+
+
+# Using graph_objects
+import plotly.express as px
+
+def plot_hioki_graph(df_avg, df_avg_show):
+    fig = px.line(df_avg, x ='datetime', y = df_avg_show.columns,
+                hover_data={'datetime': '| %d/%m \n%H:%M:%S'},
+                title='Tensão e Corrente')
+    fig.update_xaxes(tickformat='%d/%m \n%H:%M:%S')
+
+    fig.show()
+
