@@ -43,7 +43,7 @@ def plot_hioki_graph(df_avg, df_avg_show, title_name, new_labels_name, labels_na
     fig = px.line(df_avg, x = 'datetime', y = df_avg_show.columns,
                 hover_data = {'datetime': '| %d/%m \n%H:%M:%S'},
                 title = title_name
-                labels = labels_name)
+                label = labels_name)
     fig.update_xaxes(tickformat = '%d/%m \n%H:%M:%S')
 
     fig.for_each_trace(lambda t: t.update(name = new_labels_name[t.name],
