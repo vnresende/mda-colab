@@ -39,7 +39,7 @@ def hioki200ms(files):
 # Using graph_objects
 import plotly.express as px
 
-def plot_hioki_graph(df_avg, df_avg_show, title_name, new_labels_name, labels_name):
+def plot_hioki_graph(df_avg, df_avg_show, title_name, new_labels_name, labels_name, zip_file):
     fig = px.line(df_avg, x = 'datetime', y = df_avg_show.columns,
                 hover_data = {'datetime': '| %d/%m \n%H:%M:%S'},
                 title = title_name,
@@ -52,7 +52,7 @@ def plot_hioki_graph(df_avg, df_avg_show, title_name, new_labels_name, labels_na
                                          )
                       )
     #fig.show()
-    fig.write_html(title_name + '.html')
+    fig.write_html(zip_file + '_' + title_name + '.html')
     return title_name + '.html'
 
 
