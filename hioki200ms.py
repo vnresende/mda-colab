@@ -52,7 +52,8 @@ def plot_hioki_graph(df_avg, df_avg_show, title_name, new_labels_name, labels_na
                                          )
                       )
     #fig.show()
-    fig.write_html(zip_file + '_' + title_name + '.html')
+    output_file_name = zip_file + '_' + title_name + '.html'
+    fig.write_html(output_file_name)
     return title_name + '.html'
 
 
