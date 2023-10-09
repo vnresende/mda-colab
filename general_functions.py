@@ -9,7 +9,7 @@ def uploading_files():
     uploaded_files = list(uploaded.keys())
     output_filename = [] 
     for file_name in uploaded_files:
-        output_filename.append(file_name.replace('.xlsx', ".dat"))
+        output_filename.append(file_name.replace('.xlsx', ".mdf"))
     return (uploaded_files, output_filename)
 
 
