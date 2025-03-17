@@ -7,6 +7,7 @@ class ModalReport():
         self.name = str(file_name)
         self.df = dataframe
         self.units = []
+        self.df = self.df.astype(object)
         self.call_functions()
     
     def call_functions(self):
@@ -91,7 +92,6 @@ class ModalReport():
 
         for i in range(len(labels)):
             labels[i] = labels[i].lstrip('_')
-        self.df = self.df.astype(object)
         self.df.loc[0, :] = labels
         self.df.loc[1, :] = unit
 
