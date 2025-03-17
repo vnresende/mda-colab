@@ -53,7 +53,8 @@ class ModalReport():
                 cell == ''
             if isinstance(cell, str):
                 for i in range(repeat):
-                    self.df.loc[row, column + i ] = cell
+                    #self.df[column] = self.df[column].astype(object)
+                    self.df.loc[row, column + i ] = str(cell)
                 else:
                     cell == ''
             column = column + i + 1
@@ -90,6 +91,7 @@ class ModalReport():
 
         for i in range(len(labels)):
             labels[i] = labels[i].lstrip('_')
+        self.df = self.df.astype(object)
         self.df.loc[0, :] = labels
         self.df.loc[1, :] = unit
 
